@@ -95,7 +95,7 @@ public class Main {
             if (string.equals(str1)) num++;
             return string.equals(str1);
         })).map(securities -> ("ID = " + securities.getId() + ", Code - '" + securities.getCode() + "'."))
-                .forEach(System.out::println);
+                  .forEach(System.out::println);
         if (num == 0) System.out.println("Подходящих ценных бумаг по запросу в списке нет!");
     }
 }
