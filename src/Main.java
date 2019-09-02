@@ -87,14 +87,15 @@ public class Main {
 
 
         System.out.println("Введите код валюты в формате EU, USD, RUB, для того, чтобы вывести " +
-                " ценные бумаги в этой валюте.");
+                " ID и коды " +
+                "ценных бумаг, использующих заданную валюту.");
         num = 0;
         String str1 = reader.readLine().trim().toUpperCase();
         companies.stream().flatMap(company -> Stream.of(company.getSecurities()).filter(securities -> {
             String string = securities.getCurrency().getCode();
             if (string.equals(str1)) num++;
             return string.equals(str1);
-        })).map(securities -> ("ID = " + securities.getId() + ", Code - '" + securities.getCode() + "'."))
+        })).map(securities -> ("ID ценных бумаг: " + securities.getId() + ", коды ценных бумаг, использующих заданную валюту: «" + securities.getCode() + "»."))
                   .forEach(System.out::println);
         if (num == 0) System.out.println("Подходящих ценных бумаг по запросу в списке нет!");
     }
